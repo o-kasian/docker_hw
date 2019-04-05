@@ -5,7 +5,7 @@ services:
       context: .
       network: host
     ports:
-      - "8080:80"
+      - "80:8080"
     environment:
       - "DB_MYSQL_HOST=mysqldb"
       - "DB_MYSQL_PORT=3306"
@@ -17,6 +17,5 @@ services:
   mysqldb:
     image: "mysql:8.0.15"
     environment:
-      - "MYSQL_DATABASE:testdb"
-      - "MYSQL_USER:root"
-      - "MYSQL_PASSWORD:123456aA"
+      - "MYSQL_DATABASE=testdb"
+      - "MYSQL_ROOT_PASSWORD=123456aA"
