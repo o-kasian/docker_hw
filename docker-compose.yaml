@@ -1,0 +1,22 @@
+version: '3.4'
+services:
+  app:
+    build:
+      context: .
+      network: host
+    ports:
+      - "8080:80"
+    environment:
+      - "DB_MYSQL_HOST=mysqldb"
+      - "DB_MYSQL_PORT=3306"
+      - "DB_MYSQL_NAME=testdb"
+      - "DB_MYSQL_USER=root"
+      - "DB_MYSQL_PASS=123456aA"
+    links:
+      - "mysqldb:mysqldb"
+  mysqldb:
+    image: "mysql:8.0.15"
+    environment:
+      - "MYSQL_DATABASE:testdb"
+      - "MYSQL_USER:root"
+      - "MYSQL_PASSWORD:123456aA"
